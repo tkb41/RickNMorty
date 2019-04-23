@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var randomBarButton: UIBarButtonItem!
+    
     
     
     var characters = Characters()
@@ -30,8 +32,21 @@ class ViewController: UIViewController {
 //        }
 //        
         
+        
+        
+        
+        
+        
+        
     }
-
+    @IBAction func randomBarButtonPressed(_ sender: Any) {
+        
+//        print(characters.charactersArray.randomElement()!)
+        print(characters.charactersArray.randomElement()!.name)
+     
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             let destination = segue.destination as! CharacterDetailViewController
