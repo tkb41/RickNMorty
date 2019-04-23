@@ -30,7 +30,7 @@ class CharacterDetailViewController: UIViewController {
         originLabel.text = characterInfo.origin
         speciesLabel.text = characterInfo.species
         lastKnownLocationLabel.text = characterInfo.location
-        
+        print("*************", nameLabel.text)
         switch characterInfo.gender {
         case "Male":
             genderImage.image = UIImage(named: "male")

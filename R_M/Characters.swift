@@ -33,9 +33,10 @@ class Characters {
                     let location = json["results"][index]["location"]["name"].stringValue
                    let episodeURL = json["results"][index]["episode"][0].stringValue
                     let imageURL = json["results"][index]["image"].stringValue
-                    print("\(index+1) \(name) \(origin) \(location) \(imageURL) \(episodeURL)")
+                    let id = json["results"][index]["id"].int
+                    print("\(index+1) \(name) \(origin) \(location) \(imageURL) \(episodeURL) \(id)")
              
-                    self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL))
+                    self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id!))
                     
                     // pic: image
                     

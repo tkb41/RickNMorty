@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qyz-am-bNF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GgM-iH-gjd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -39,7 +39,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="CGN-ub-OQc" kind="show" identifier="ShowDetail" id="S8a-92-JWh"/>
+                                            <segue destination="CGN-ub-OQc" kind="show" identifier="ShowDetail" id="T6t-kf-EEh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -54,28 +54,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="B1Z-l3-njF">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Jcw-Cy-gES">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="qyz-am-bNF" kind="show" id="pNN-ss-nlS"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Random" width="9" id="pY5-yj-wpu">
-                            <color key="tintColor" red="0.058166728199999997" green="0.04392720663" blue="0.12349302030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="randomBarButtonPressed:" destination="BYZ-38-t0r" id="gQV-6p-r7t"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="B1Z-l3-njF"/>
                     <connections>
-                        <outlet property="randomBarButton" destination="pY5-yj-wpu" id="pZw-Hx-RIJ"/>
                         <outlet property="tableView" destination="bcQ-lq-Wci" id="Hxh-eY-IEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="354"/>
+            <point key="canvasLocation" x="2064.8000000000002" y="353.9730134932534"/>
         </scene>
         <!--Character Detail-->
         <scene sceneID="Eoy-k1-Lgs">
@@ -268,12 +254,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXE-vF-e1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="687"/>
+            <point key="canvasLocation" x="3092" y="686.80659670164926"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="Xrv-EV-3yV">
             <objects>
-                <viewController id="qyz-am-bNF" sceneMemberID="viewController">
+                <viewController id="qyz-am-bNF" customClass="firstViewController" customModule="R_M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Wu-qS-kig">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,7 +273,7 @@
                                     <color key="titleShadowColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wgf-29-Byd" kind="presentation" id="khz-3R-dzx"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowList" id="5Bn-zk-shH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs2-PH-Z8E">
@@ -299,7 +285,8 @@
                                     <color key="titleShadowColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CGN-ub-OQc" kind="presentation" id="hWf-WZ-gMW"/>
+                                    <action selector="randomButtonPushed:" destination="qyz-am-bNF" eventType="touchUpInside" id="M5R-A0-RHF"/>
+                                    <segue destination="CGN-ub-OQc" kind="show" identifier="RandomSegue" id="ObJ-so-2X2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rick N Morty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-M2-aEn">
@@ -313,28 +300,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0se-aM-eHn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Um0-Hr-9q3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiD-Fg-SfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679.20000000000005" y="896.40179910044981"/>
+            <point key="canvasLocation" x="260" y="896.40179910044981"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="s2w-1Z-guv">
+        <scene sceneID="xeU-Jy-goA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wgf-29-Byd" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GgM-iH-gjd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pCC-9g-x3f">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K0Y-LG-G9p">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VOZ-Wc-dj1"/>
+                        <segue destination="qyz-am-bNF" kind="relationship" relationship="rootViewController" id="SeS-uF-IUH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NfC-rS-S5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZzQ-93-4mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="211"/>
+            <point key="canvasLocation" x="-679.20000000000005" y="896.40179910044981"/>
         </scene>
     </scenes>
     <resources>
@@ -343,7 +331,7 @@
         <image name="male" width="202" height="249"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S8a-92-JWh"/>
+        <segue reference="T6t-kf-EEh"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
