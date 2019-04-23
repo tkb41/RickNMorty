@@ -22,6 +22,8 @@ struct CharacterInfo{
     var imageURL = ""
     var episodeURL = ""
     var id = 0
+    
+    var episodeName = ""
 //    var pic: UIImage!
     
     

@@ -11,18 +11,20 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var randomBarButton: UIBarButtonItem!
+
     
     
-    
+
     var characters = Characters()
     var episodes = Characters()
+    var loadAll = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
+        loadData()
         
         characters.getCharacters {
             self.tableView.reloadData()
@@ -30,22 +32,9 @@ class ViewController: UIViewController {
 //        episodes.getEpisodeInfo {
 //            print("*****")
 //        }
-//        
-        
-        
-        
-        
-        
-        
-        
+//
     }
-    @IBAction func randomBarButtonPressed(_ sender: Any) {
-        
-//        print(characters.charactersArray.randomElement()!)
-        print(characters.charactersArray.randomElement()!.name)
-     
-        
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
@@ -59,17 +48,21 @@ class ViewController: UIViewController {
             destination.characterInfo.gender = characters.charactersArray[selectedIndex.row].gender
             destination.characterInfo.origin = characters.charactersArray[selectedIndex.row].origin
             destination.characterInfo.imageURL = characters.charactersArray[selectedIndex.row].imageURL
+            destination.characterInfo.episodeName = characters.charactersArray[selectedIndex.row].episodeName
             
             
         }
     }
-    
-    
-    
-    
-    
-    
-
+    func loadData() {
+        if characters.nextURL.hasPrefix("http") {
+            characters.getCharacters {
+                self.tableView.reloadData()
+            }
+            
+        } else {
+                self.loadAll = false
+        }
+    }
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +72,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = characters.charactersArray[indexPath.row].name
+        
+        if indexPath.row == characters.charactersArray.count-1 {
+            loadData()
+        }
         return cell
     }
     

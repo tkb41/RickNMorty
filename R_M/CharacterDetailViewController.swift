@@ -30,7 +30,9 @@ class CharacterDetailViewController: UIViewController {
         originLabel.text = characterInfo.origin
         speciesLabel.text = characterInfo.species
         lastKnownLocationLabel.text = characterInfo.location
-        print("*************", nameLabel.text)
+        firstEpisode.text = characterInfo.episodeName
+        
+       
         switch characterInfo.gender {
         case "Male":
             genderImage.image = UIImage(named: "male")
@@ -41,14 +43,10 @@ class CharacterDetailViewController: UIViewController {
         }
         print(characterInfo.gender)
         
-    
-        
-        
         print(characterInfo.name)
         
         updateUserInterface()
     }
-    
     func updateUserInterface() {
         // code for reading in a url and displaying in an image
         guard let imageURL = URL(string: characterInfo.imageURL)
@@ -59,11 +57,10 @@ class CharacterDetailViewController: UIViewController {
         } catch {
             print("cant get the data frmo URL \(imageURL)")
         }
-
-        guard let episodeURL = URL(string: characterInfo.episodeURL)
+        guard let firstEpisode = URL(string: characterInfo.episodeURL)
             else { return }
         do {
-            let data = try Data(contentsOf: episodeURL)
+            let data = try Data(contentsOf: firstEpisode)
             characterImage.image = UIImage(data: data)
         } catch {
             print("cant get the data frmo URL \(imageURL)")
