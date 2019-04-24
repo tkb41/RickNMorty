@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Promise
 
 class Characters {
     
@@ -38,34 +39,69 @@ class Characters {
                    let episodeURL = json["results"][index]["episode"][0].stringValue
                     let imageURL = json["results"][index]["image"].stringValue
                     let id = json["results"][index]["id"].int
+                    let epName = self.getEpisodes(epURL: episodeURL)
+                    epName.then({ (episode) in
+                                  self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episode))
+                         completed()
+                    })
+                
                     
-//                    self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: "episodeURL"))
+                    
+//                    self.getEpisodes(epURL: episodeURL)
+                    
+          
                     
                     print("\(index+1) \(name) \(origin) \(location) \(imageURL) \(episodeURL) \(id)")
                 print(self.nextURL)
-
-                    // pic: also a call
-                    Alamofire.request(episodeURL).responseJSON { response in
-                        switch response.result {
-                        case .success(let value):
-                            let json = JSON(value)
-                            let episodeName = json["name"].stringValue
-                            
-                            print("📍\(episodeName)")
-                            
-                            self.charactersArray.append(CharacterInfo(name: name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episodeName))
-                            
-                        case .failure(_):
-                            print("ERROR")
-                        }
-                    }
+                   
+//                    // pic: also a call
+//                    Alamofire.request(episodeURL).responseJSON { response in
+//                        switch response.result {
+//                        case .success(let value):
+//                            let json = JSON(value)
+//                            let episodeName = json["name"].stringValue
+//
+//                            print("📍📍\(name)")
+//                            print("📍\(episodeName)")
+//
+//                            self.charactersArray.append(CharacterInfo(name: name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episodeName))
+//
+//                        case .failure(_):
+//                            print("ERROR")
+//                        }
+//                    }
                 }
             case.failure(let error):
                 print("getting the info did not work, \(error.localizedDescription)")
             }
-            completed()
+           
         }
 //        print("💯\(episodeDetailURL)")
+    }
+    
+    
+    
+    func getEpisodes(epURL: String) -> Promise<String> {
+        return Promise<String> { fulfill, error in
+            Alamofire.request(epURL).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let episodeName = json["name"].stringValue
+                    print("📍\(episodeName)")
+                    return fulfill(episodeName)
+                    
+//                    print("📍📍\(name)")
+
+                    
+//                    self.charactersArray.append(CharacterInfo(name: name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episodeName))
+                    
+                case .failure(_):
+                    print("ERROR")
+                }
+            }
+            .resume()
+        }
     }
 
 

@@ -24,15 +24,25 @@ var randomOrigin = ""
 var randomImageURL = ""
 var randomEpisodeName = ""
     
-var viewControllwe = ViewController()
+var viewController = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        characters.getCharacters {
-        }
+        self.navigationController?.navigationBar.isHidden = true
+        
+        loadData()
         // Do any additional setup after loading the view.
-//        viewControllwe.loadData()
+//        viewController.loadData()
          // ^ that breaks the code
+    }
+    func loadData() {
+        if characters.nextURL.hasPrefix("http") {
+            characters.getCharacters {
+              
+            }
+        } else {
+            
+        }
     }
     
     @IBAction func randomButtonPushed(_ sender: Any) {

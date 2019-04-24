@@ -21,17 +21,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
         loadData()
         
-        characters.getCharacters {
-            self.tableView.reloadData()
-        }
-        episodes.getEpisodes{
-            print("*&^%^$$#%^$&%^%")
-        }
+        
+ 
+        
+        
+//        characters.getCharacters {
+//            self.tableView.reloadData()
+//        }
+        
 //        episodes.getEpisodeInfo {
 //            print("*****")
 //        }

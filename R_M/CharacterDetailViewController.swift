@@ -24,6 +24,7 @@ class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         
         nameLabel.text = characterInfo.name
         statusLabel.text = characterInfo.status
