@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
 
     var characters = Characters()
-    var episodes = Characters()
+    var episodes = Episodes()
     var loadAll = true
     
     override func viewDidLoad() {
@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         
         characters.getCharacters {
             self.tableView.reloadData()
+        }
+        episodes.getEpisodes{
+            print("*&^%^$$#%^$&%^%")
         }
 //        episodes.getEpisodeInfo {
 //            print("*****")
@@ -56,6 +59,9 @@ class ViewController: UIViewController {
     func loadData() {
         if characters.nextURL.hasPrefix("http") {
             characters.getCharacters {
+                self.tableView.reloadData()
+            }
+            episodes.getEpisodes {
                 self.tableView.reloadData()
             }
             

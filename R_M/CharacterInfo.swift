@@ -28,3 +28,9 @@ struct CharacterInfo{
     
     
 }
+struct EpisodeInfo {
+    var name = ""
+    var air_date = ""
+    var episode = ""
+    
+}

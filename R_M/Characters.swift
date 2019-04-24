@@ -39,13 +39,11 @@ class Characters {
                     let imageURL = json["results"][index]["image"].stringValue
                     let id = json["results"][index]["id"].int
                     
-                    self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: "episodeURL"))
+//                    self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: "episodeURL"))
                     
                     print("\(index+1) \(name) \(origin) \(location) \(imageURL) \(episodeURL) \(id)")
                 print(self.nextURL)
-             
-                    
-                    
+
                     // pic: also a call
                     Alamofire.request(episodeURL).responseJSON { response in
                         switch response.result {
@@ -55,7 +53,7 @@ class Characters {
                             
                             print("📍\(episodeName)")
                             
-                            self.charactersArray.append(CharacterInfo(name:name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episodeName))
+                            self.charactersArray.append(CharacterInfo(name: name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, episodeURL: episodeURL, id: id ?? 0, episodeName: episodeName))
                             
                         case .failure(_):
                             print("ERROR")

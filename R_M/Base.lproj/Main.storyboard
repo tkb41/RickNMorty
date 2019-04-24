@@ -304,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiD-Fg-SfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="896.40179910044981"/>
+            <point key="canvasLocation" x="1164" y="839"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xeU-Jy-goA">
@@ -322,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZzQ-93-4mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679.20000000000005" y="896.40179910044981"/>
+            <point key="canvasLocation" x="175" y="839"/>
         </scene>
     </scenes>
     <resources>
@@ -331,7 +331,7 @@
         <image name="male" width="202" height="249"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T6t-kf-EEh"/>
+        <segue reference="ObJ-so-2X2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

@@ -10,17 +10,28 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-//class Episodes:  {
-//    var apiURL = Characters()
-//
-//func getEpisodeInfo (completed: @escaping ()->() ) {
-//    guard episodeDetailURL != "" else {return}
-//
-//    print(episodeDetailURL)
-//
-//
-//
-//?
-// how do I get the name of the episode to come up if i just have the api url
 
+var characters = Characters()
+var nextURL = characters.nextURL
 
+class Episodes  {
+    
+
+    
+    
+    func getEpisodes(completed: @escaping ()->() ) {
+        Alamofire.request(nextURL).responseJSON { response in
+switch response.result {
+case .success(let value):
+    let json = JSON(value)
+    let episodeName = json["name"].stringValue
+    
+    
+    print("📍📍\(episodeName)")
+    
+case .failure(_):
+    print("ERROR")
+            }
+}
+}
+}
