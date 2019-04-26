@@ -117,7 +117,6 @@
 				213ECEB3226E3F5800ABF596 /* AppDelegate.swift */,
 				21F531BE226E495B00F42B3B /* CharacterInfo.swift */,
 				21F531C0226E4A2400F42B3B /* Characters.swift */,
-				210122E9226EB38300967886 /* Episodes.swift */,
 				213ECEB5226E3F5800ABF596 /* ViewController.swift */,
 				21F531C2226E655700F42B3B /* CharacterDetailViewController.swift */,
 				213ECEB7226E3F5800ABF596 /* Main.storyboard */,
@@ -125,6 +124,7 @@
 				213ECEBA226E3F5900ABF596 /* Assets.xcassets */,
 				213ECEBC226E3F5900ABF596 /* LaunchScreen.storyboard */,
 				213ECEBF226E3F5900ABF596 /* Info.plist */,
+				210122E9226EB38300967886 /* Episodes.swift */,
 			);
 			path = R_M;
 			sourceTree = "<group>";

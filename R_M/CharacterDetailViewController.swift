@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,8 +21,10 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var genderImage: UIImageView!
     
     @IBOutlet weak var firstEpisode: UILabel!
+    var episodeName = ""
     
     var characterInfo = CharacterInfo()
+    var characters = Characters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +35,7 @@ class CharacterDetailViewController: UIViewController {
         originLabel.text = characterInfo.origin
         speciesLabel.text = characterInfo.species
         lastKnownLocationLabel.text = characterInfo.location
-        firstEpisode.text = characterInfo.episodeName
-        
-       
+              
         switch characterInfo.gender {
         case "Male":
             genderImage.image = UIImage(named: "male")
@@ -42,14 +44,27 @@ class CharacterDetailViewController: UIViewController {
         default:
           genderImage.isHidden = true
         }
-        print(characterInfo.gender)
-        
-        print(characterInfo.name)
-        
+        func getEpisodeName(url: String, completed: @escaping ()->() ) {
+            Alamofire.request(url).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    self.episodeName = json["name"].stringValue
+                    print("📍\(self.episodeName)")
+                    self.firstEpisode.text = self.episodeName
+                case .failure(_):
+                    print("ERROR")
+                }
+            }
+        }
+//        print("📍📍\(episodeName)")
+       getEpisodeName(url: characterInfo.episodeName) {
+        }
         updateUserInterface()
     }
+    
     func updateUserInterface() {
-        // code for reading in a url and displaying in an image
+//         code for reading in a url and displaying in an image
         guard let imageURL = URL(string: characterInfo.imageURL)
             else { return }
         do {
@@ -58,13 +73,6 @@ class CharacterDetailViewController: UIViewController {
         } catch {
             print("cant get the data frmo URL \(imageURL)")
         }
-        guard let firstEpisode = URL(string: characterInfo.episodeURL)
-            else { return }
-        do {
-            let data = try Data(contentsOf: firstEpisode)
-            characterImage.image = UIImage(data: data)
-        } catch {
-            print("cant get the data frmo URL \(imageURL)")
-        }
-    }
+        
+}
 }

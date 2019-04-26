@@ -8,7 +8,9 @@
 
 import Foundation
 import AVFoundation
+import SwiftyJSON
 import Alamofire
+
 
 
 struct CharacterInfo{
@@ -20,17 +22,21 @@ struct CharacterInfo{
     var origin = ""
     var location = ""
     var imageURL = ""
-    var episodeURL = ""
     var id = 0
-    
     var episodeName = ""
+    var episodeURL = ""
+    
+    
+    
 //    var pic: UIImage!
-    
-    
 }
-struct EpisodeInfo {
-    var name = ""
-    var air_date = ""
-    var episode = ""
-    
-}
+
+
+//struct EpisodeInfo {
+//    var name = ""
+//    var air_date = ""
+//    var episode = ""
+//}
+
+
+

@@ -11,37 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
     
-    
-
     var characters = Characters()
-    var episodes = Episodes()
     var loadAll = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        // Do any additional setup after loading the view, typically from a nib.
+
         tableView.dataSource = self
         tableView.delegate = self
-        loadData()
-        
-        
- 
-        
-        
 //        characters.getCharacters {
 //            self.tableView.reloadData()
+//            print("intital get")
 //        }
+        loadData()
         
-//        episodes.getEpisodeInfo {
-//            print("*****")
-//        }
-//
+
     }
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             let destination = segue.destination as! CharacterDetailViewController
@@ -60,18 +48,24 @@ class ViewController: UIViewController {
         }
     }
     func loadData() {
-        if characters.nextURL.hasPrefix("http") {
-            characters.getCharacters {
-                self.tableView.reloadData()
-            }
-            episodes.getEpisodes {
-                self.tableView.reloadData()
-            }
-            
-        } else {
-                self.loadAll = false
+        characters.getCharacters {
+            self.tableView.reloadData()
         }
+        
+//        if characters.nextURL.hasPrefix("http") {
+//            characters.getCharacters {
+//                self.tableView.reloadData()
+//                if self.loadAll {
+//                    self.loadData()
+//                }
+//            }
+//        } else {
+//                self.loadAll = false
+//        }
     }
+    
+    
+    
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -267,9 +267,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="37846bc97a9c72730c6da05ff1b2f046" translatesAutoresizingMaskIntoConstraints="NO" id="WF2-Kx-Kqr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs2-PH-Z8E">
-                                <rect key="frame" x="186" y="316" width="173" height="36"/>
-                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs2-PH-Z8E">
+                                <rect key="frame" x="186" y="316" width="183" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.28425656829229418" green="0.075965915845927351" blue="0.68234536971928927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                 <state key="normal" title="Random Character">
                                     <color key="titleColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,22 +281,16 @@
                                     <segue destination="CGN-ub-OQc" kind="show" identifier="RandomSegue" id="ObJ-so-2X2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rick N Morty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-M2-aEn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="42"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6m-qG-Ts1">
                                 <rect key="frame" x="16" y="316" width="162" height="35"/>
-                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.26425555674876999" green="0.2039399262175102" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="162" id="5XB-EV-jiZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                 <state key="normal" title="Character List">
                                     <color key="titleColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowList" id="5Bn-zk-shH"/>
@@ -305,24 +300,49 @@
                                 <rect key="frame" x="-80" y="316" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick N Morty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-M2-aEn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="1eT-r9-HjM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaZ-ED-dmE">
+                                <rect key="frame" x="55" y="384" width="175" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="fF1-xz-EC5"/>
+                                    <constraint firstAttribute="width" constant="175" id="s6a-Rc-8Dm"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="rickButtonPushed:" destination="qyz-am-bNF" eventType="touchUpInside" id="fVZ-Nt-3W1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lDt-M2-aEn" firstAttribute="trailing" secondItem="0se-aM-eHn" secondAttribute="trailing" id="6LW-A7-N2d"/>
                             <constraint firstItem="d6m-qG-Ts1" firstAttribute="centerY" secondItem="WF2-Kx-Kqr" secondAttribute="centerY" id="BDN-Qu-BIo"/>
-                            <constraint firstItem="d6m-qG-Ts1" firstAttribute="top" secondItem="gs2-PH-Z8E" secondAttribute="top" id="ECt-NE-lQo"/>
                             <constraint firstAttribute="trailing" secondItem="WF2-Kx-Kqr" secondAttribute="trailing" id="H0Q-Q0-Dhg"/>
                             <constraint firstItem="WF2-Kx-Kqr" firstAttribute="bottom" secondItem="0se-aM-eHn" secondAttribute="bottom" id="J4V-FX-KcY"/>
-                            <constraint firstItem="lDt-M2-aEn" firstAttribute="leading" secondItem="0se-aM-eHn" secondAttribute="leading" id="OU0-5m-UHU"/>
+                            <constraint firstItem="0se-aM-eHn" firstAttribute="trailing" secondItem="GaZ-ED-dmE" secondAttribute="trailing" constant="145" id="Rwt-ab-1Wl"/>
                             <constraint firstItem="WF2-Kx-Kqr" firstAttribute="top" secondItem="3Wu-qS-kig" secondAttribute="top" id="c5V-Bd-KaK"/>
-                            <constraint firstItem="gs2-PH-Z8E" firstAttribute="leading" secondItem="d6m-qG-Ts1" secondAttribute="trailing" constant="8" symbolic="YES" id="mnw-Vw-0em"/>
+                            <constraint firstItem="GaZ-ED-dmE" firstAttribute="leading" secondItem="0se-aM-eHn" secondAttribute="leading" constant="55" id="oKG-bk-XS5"/>
+                            <constraint firstItem="lDt-M2-aEn" firstAttribute="trailing" secondItem="0se-aM-eHn" secondAttribute="trailing" id="omA-W8-U0y"/>
+                            <constraint firstItem="lDt-M2-aEn" firstAttribute="top" secondItem="3Wu-qS-kig" secondAttribute="top" constant="64" id="rWA-UE-JQM"/>
                             <constraint firstItem="WF2-Kx-Kqr" firstAttribute="leading" secondItem="3Wu-qS-kig" secondAttribute="leading" id="ruj-iA-fi4"/>
+                            <constraint firstItem="0se-aM-eHn" firstAttribute="bottom" secondItem="GaZ-ED-dmE" secondAttribute="bottom" constant="69" id="uFo-QF-RQi"/>
                             <constraint firstItem="d6m-qG-Ts1" firstAttribute="leading" secondItem="3Wu-qS-kig" secondAttribute="leadingMargin" id="v32-2U-lBp"/>
+                            <constraint firstItem="lDt-M2-aEn" firstAttribute="leading" secondItem="0se-aM-eHn" secondAttribute="leading" id="zPS-gJ-VOv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0se-aM-eHn"/>
                     </view>
                     <navigationItem key="navigationItem" id="Um0-Hr-9q3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="hiddenRickButton" destination="GaZ-ED-dmE" id="3vo-0r-LHV"/>
+                        <outlet property="star" destination="n5b-EU-h3B" id="OVB-tr-yun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiD-Fg-SfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
