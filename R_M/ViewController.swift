@@ -6,6 +6,11 @@
 //  Copyright © 2019 t. kyle burns. All rights reserved.
 //
 
+
+
+//NOTE: Hello Professor G, I have another version that uses an extension to search through this tableView however I have been unable to get it to segue properly. For example, if I searched something with "AL" and there were three results, When I clicked the the third result, it would segue me to the detailView of the third thing of the original load. 
+
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var characters = Characters()
-    var loadAll = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         loadData()
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.blue
 
     }
 

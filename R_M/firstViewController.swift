@@ -21,6 +21,9 @@ class firstViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     
     
+    @IBOutlet weak var randomButton: UIButton!
+    @IBOutlet weak var listButtton: UIButton!
+    
     var characters = Characters()
     
     var delayCounter = 1
@@ -39,14 +42,26 @@ class firstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listButtton.backgroundColor = .clear
+        listButtton.layer.cornerRadius = 5
+        listButtton.layer.borderWidth = 1
+        listButtton.layer.borderColor = UIColor.green.cgColor
+        randomButton.backgroundColor = .clear
+        randomButton.layer.cornerRadius = 5
+        randomButton.layer.borderWidth = 1
+        randomButton.layer.borderColor = UIColor.green.cgColor
+        
+        
+        star.center.x  -= view.bounds.width
+        star.center.y = view.bounds.width
+        animateStar()
         characters.getCharacters {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        star.center.x  -= view.bounds.width
-        star.center.y = view.bounds.width
-        animateStar()
+        
         
     }
 
