@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-import Promise
 
 class Characters {
     var index = 0
@@ -37,11 +36,9 @@ class Characters {
                     let imageURL = json["results"][index]["image"].stringValue
                     let id = json["results"][index]["image"].int
                     let episodeURL = json["results"][index]["episode"][0].stringValue
-                    
+        
                     let newCharacterInfo = CharacterInfo(name: name, status: status, species: species, type: type, gender: gender, origin: origin, location: location, imageURL: imageURL, id: index, episodeName: episodeURL, episodeURL:episodeURL)
-                    
                     self.charactersArray.append(newCharacterInfo)
-         
                 }
                 
             case.failure(let error):

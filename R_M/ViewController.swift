@@ -18,15 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-
         tableView.dataSource = self
         tableView.delegate = self
-//        characters.getCharacters {
-//            self.tableView.reloadData()
-//            print("intital get")
-//        }
         loadData()
-        
 
     }
 
@@ -34,34 +28,15 @@ class ViewController: UIViewController {
         if segue.identifier == "ShowDetail" {
             let destination = segue.destination as! CharacterDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow!
-            destination.characterInfo.name = characters.charactersArray[selectedIndex.row].name
-            destination.characterInfo.location = characters.charactersArray[selectedIndex.row].location
-            destination.characterInfo.status = characters.charactersArray[selectedIndex.row].status
-            destination.characterInfo.species = characters.charactersArray[selectedIndex.row].species
-            destination.characterInfo.type = characters.charactersArray[selectedIndex.row].type
-            destination.characterInfo.gender = characters.charactersArray[selectedIndex.row].gender
-            destination.characterInfo.origin = characters.charactersArray[selectedIndex.row].origin
-            destination.characterInfo.imageURL = characters.charactersArray[selectedIndex.row].imageURL
-            destination.characterInfo.episodeName = characters.charactersArray[selectedIndex.row].episodeName
             
-            
+            //more succinct passing of characterInfo
+            destination.characterInfo = characters.charactersArray[selectedIndex.row]
         }
     }
     func loadData() {
         characters.getCharacters {
             self.tableView.reloadData()
         }
-        
-//        if characters.nextURL.hasPrefix("http") {
-//            characters.getCharacters {
-//                self.tableView.reloadData()
-//                if self.loadAll {
-//                    self.loadData()
-//                }
-//            }
-//        } else {
-//                self.loadAll = false
-//        }
     }
     
     

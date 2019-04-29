@@ -7,11 +7,6 @@
 //
 
 import Foundation
-import AVFoundation
-import SwiftyJSON
-import Alamofire
-
-
 
 struct CharacterInfo{
     var name = ""
@@ -25,18 +20,4 @@ struct CharacterInfo{
     var id = 0
     var episodeName = ""
     var episodeURL = ""
-    
-    
-    
-//    var pic: UIImage!
 }
-
-
-//struct EpisodeInfo {
-//    var name = ""
-//    var air_date = ""
-//    var episode = ""
-//}
-
-
-

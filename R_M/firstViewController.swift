@@ -39,17 +39,15 @@ class firstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-        star.center.x  -= view.bounds.width
-        animateStar()
-        
         characters.getCharacters {
         }
-//        if characters.nextURL.hasPrefix("http") {
-//            characters.getCharacters {
-//
-//            }
-//        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        star.center.x  -= view.bounds.width
+        star.center.y = view.bounds.width
+        animateStar()
+        
     }
 
     
@@ -102,6 +100,6 @@ func playSound(soundName: String, audioPlayer: inout AVAudioPlayer ){
         }catch{
         }
     }else{
-        print("error, data from the douns file did not play ")
+        print("error, data from the sounds file did not play ")
     }
 }
