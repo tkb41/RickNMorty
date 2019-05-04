@@ -16,6 +16,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var activityIndicator = UIActivityIndicatorView()
     
     var characters = Characters()
     
@@ -25,11 +26,21 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         tableView.dataSource = self
         tableView.delegate = self
+        
+        setUpActivityIndicator()
         loadData()
         
         navigationController?.navigationBar.backgroundColor = UIColor.blue
 
     }
+    func setUpActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .whiteLarge
+        activityIndicator.color = UIColor.red
+        view.addSubview(activityIndicator)
+    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
@@ -41,9 +52,16 @@ class ViewController: UIViewController {
         }
     }
     func loadData() {
+        setUpActivityIndicator()
         characters.getCharacters {
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
         }
+        navigationItem.title = "# of Characters \((self.characters.charactersArray.count)+20)"
+        
     }
     
     
