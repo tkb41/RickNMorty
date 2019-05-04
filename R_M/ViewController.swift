@@ -61,12 +61,32 @@ class ViewController: UIViewController {
             
         }
         navigationItem.title = "# of Characters \((self.characters.charactersArray.count)+20)"
+    }
+    
+    @IBAction func loadAllBarButtonPressed(_ sender: UIBarButtonItem) {
+        loadAll()
+    }
+    func loadAll(){
+        if characters.nextURL.hasPrefix("http")
+        {
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            characters.getCharacters{
+                self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.navigationItem.title = "# of Characters \((self.characters.charactersArray.count)+20)"
+                self.loadAll()
+            }
+        }
+    }
+
         
     }
     
     
     
-}
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.charactersArray.count

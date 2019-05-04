@@ -54,7 +54,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="B1Z-l3-njF"/>
+                    <navigationItem key="navigationItem" id="B1Z-l3-njF">
+                        <barButtonItem key="rightBarButtonItem" title="Load All" id="pWS-EO-eVb">
+                            <connections>
+                                <action selector="loadAllBarButtonPressed:" destination="BYZ-38-t0r" id="UgJ-Fx-WB3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="bcQ-lq-Wci" id="Hxh-eY-IEM"/>
                     </connections>
