@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-lq-Wci">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="25M-PL-Ad1" style="IBUITableViewCellStyleDefault" id="v6a-oE-3r9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="25M-PL-Ad1" detailTextLabel="OFa-RR-r2c" style="IBUITableViewCellStyleSubtitle" id="v6a-oE-3r9">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v6a-oE-3r9" id="2vt-eZ-bQ8">
@@ -30,9 +30,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="25M-PL-Ad1">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OFa-RR-r2c">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -44,13 +51,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9af-kg-2iU">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="XlK-5r-3yz">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="qJl-if-KEE">
+                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <segments>
+                                                <segment title="A-Z"/>
+                                                <segment title="First Episode"/>
+                                                <segment title="Species"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="sortSegmentPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="YDI-0J-Ga7"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bcQ-lq-Wci" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WVV-8Z-0K7"/>
-                            <constraint firstItem="bcQ-lq-Wci" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wdu-JD-s4P"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bcQ-lq-Wci" secondAttribute="trailing" id="iDR-RR-MWe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bcQ-lq-Wci" secondAttribute="bottom" id="pQ6-sw-ud9"/>
+                            <constraint firstItem="9af-kg-2iU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5ca-AI-BzA"/>
+                            <constraint firstItem="9af-kg-2iU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HpF-PL-ULM"/>
+                            <constraint firstItem="9af-kg-2iU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UT6-9s-5mb"/>
+                            <constraint firstItem="bcQ-lq-Wci" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YPP-Ql-S1k"/>
+                            <constraint firstItem="bcQ-lq-Wci" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cCx-qk-aCS"/>
+                            <constraint firstItem="bcQ-lq-Wci" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iY7-Lp-jxi"/>
+                            <constraint firstItem="9af-kg-2iU" firstAttribute="top" secondItem="bcQ-lq-Wci" secondAttribute="bottom" id="oib-Ad-dH2"/>
+                            <constraint firstItem="9af-kg-2iU" firstAttribute="top" secondItem="bcQ-lq-Wci" secondAttribute="bottom" id="xrk-9f-jJr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -62,6 +94,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sortSegmentControl" destination="qJl-if-KEE" id="tPG-fQ-cvX"/>
                         <outlet property="tableView" destination="bcQ-lq-Wci" id="Hxh-eY-IEM"/>
                     </connections>
                 </viewController>

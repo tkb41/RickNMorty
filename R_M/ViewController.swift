@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var characters = Characters()
     
     
+    @IBOutlet weak var sortSegmentControl: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -29,6 +32,7 @@ class ViewController: UIViewController {
         
         setUpActivityIndicator()
         loadData()
+        
         
         navigationController?.navigationBar.backgroundColor = UIColor.blue
 
@@ -61,6 +65,7 @@ class ViewController: UIViewController {
             
         }
         navigationItem.title = "# of Characters \((self.characters.charactersArray.count)+20)"
+        
     }
     
     @IBAction func loadAllBarButtonPressed(_ sender: UIBarButtonItem) {
@@ -80,8 +85,32 @@ class ViewController: UIViewController {
             }
         }
     }
+    func sortBasedOnSegment() {
+        switch sortSegmentControl.selectedSegmentIndex {
+            case 0:
+            print("@")
+        characters.charactersArray.sort(by: {$0.name < $1.name})
+            
+            // a-z
+            case 1:
+            // episode
+            characters.charactersArray.sort(by: {$0.episodeName < $1.episodeName})
+          
+            case 2:
+            characters.charactersArray.sort(by: {$0.species < $1.species})
+        // species
 
+        default:
+            print("*")
+        }
+    }
+    @IBAction func sortSegmentPressed(_ sender: UISegmentedControl) {
+        sortBasedOnSegment()
+        tableView.reloadData()
         
+        
+    }
+    
     }
     
     
@@ -95,13 +124,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = characters.charactersArray[indexPath.row].name
+        cell.detailTextLabel?.text = ""
+        switch sortSegmentControl.selectedSegmentIndex {
+        case 0:
+            print("@")
+            cell.detailTextLabel?.text = ""
+       // A-Z
+        case 1:
+          //episode
+            print("")
+           
+            cell.detailTextLabel?.text = characters.charactersArray[indexPath.row].episodeName
+        case 2:
+           cell.detailTextLabel?.text = characters.charactersArray[indexPath.row].species
+            // species
+            
+        default:
+            print("*")
+        }
+    
         
         if indexPath.row == characters.charactersArray.count-1 {
             loadData()
         }
         return cell
     }
-    
+    //https://rickandmortyapi.com/api/episode/
     
 }
 
