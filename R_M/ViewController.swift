@@ -127,7 +127,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = ""
         switch sortSegmentControl.selectedSegmentIndex {
         case 0:
-            print("@")
             cell.detailTextLabel?.text = ""
        // A-Z
         case 1:
