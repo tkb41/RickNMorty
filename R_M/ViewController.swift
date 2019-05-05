@@ -127,15 +127,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = ""
         switch sortSegmentControl.selectedSegmentIndex {
         case 0:
+
             cell.detailTextLabel?.text = ""
        // A-Z
         case 1:
           //episode
             print("")
            
-            cell.detailTextLabel?.text = characters.charactersArray[indexPath.row].episodeName
+            cell.detailTextLabel?.text = "First Appearance in episode # \(characters.charactersArray[indexPath.row].episodeName.replacingOccurrences(of: "https://rickandmortyapi.com/api/episode/", with: ""))"
+            
         case 2:
            cell.detailTextLabel?.text = characters.charactersArray[indexPath.row].species
+           
             // species
             
         default:
@@ -145,6 +148,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == characters.charactersArray.count-1 {
             loadData()
+            
+            
         }
         return cell
     }
